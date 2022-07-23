@@ -1,0 +1,17 @@
+.testing {
+ font-size: 25px;
+ background-color: blue;
+ color: white;
+}
+
+.home-body {
+    font-size: 30px;
+    text-align: center;
+}
+
+.home-body-div {
+    width: 500px;
+    height: 500px;
+    outline: 5px solid black;
+    margin-left: 700px;
+}
