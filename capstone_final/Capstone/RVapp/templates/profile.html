@@ -1,0 +1,43 @@
+<h1> Profile Page </h1>
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<link href="{% static 'style.css' %}" rel="stylesheet" type="text/css">
+</head>
+<body class="profile-body">
+
+<h1>This is a heading</h1>
+<p>This is a paragraph.</p>
+
+
+</body>
+</html> 
+{% block content %}
+<div class="profile-enclosure">
+    <div class="profile">
+        <h1> Welcome, {{ user.username }}. </h1><br>
+    </div>
+    <div class="picture-image">    
+        <img src="{{ user.siteusers.profile_picture.url }}" height="100px"> 
+        <h1 class="profile-email"> {{ user.email }} </h1>
+    </div> 
+</div>
+
+<div class="home-redirect-btn">
+     <div>
+        <a href="{% url 'register' %}"><button> Register </button></a>
+    </div>
+    <div>
+        <a href="{% url 'home' %}"><button> Home </button></a>
+    </div>
+    <div>
+        <a href="{% url 'login' %}"><button> Login </button></a>
+    </div>
+    <div>
+        <a href="{% url 'profile' %}"><button> Profile </button></a>
+    </div>
+</div>
+
+    
+{% endblock content %}

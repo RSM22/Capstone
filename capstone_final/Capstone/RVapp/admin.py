@@ -9,3 +9,4 @@ class CampgroundAdmin(admin.ModelAdmin):
 admin.site.register(Amenities)
 admin.site.register(Campground, CampgroundAdmin)
 admin.site.register(CampgroundImages)
+admin.site.register(SiteUsers)

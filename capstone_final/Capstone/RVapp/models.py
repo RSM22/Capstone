@@ -1,11 +1,11 @@
+from distutils.command.upload import upload
 from django.db import models
-
-# Create your models here.
-
 from statistics import mode
 from django.contrib.auth.models import User
 from django.db import models
 import uuid
+
+
 
 # Create your models here.
 class BaseModel(models.Model):
@@ -46,3 +46,12 @@ class CampgroundBooking(BaseModel):
     start_date = models.DateField()
     end_date = models.DateField()
     booking_type = models.CharField(max_length=100, choices=(('Pre Paid', 'Pre Paid'), ('Post Paid', 'Post Paid')))
+
+
+class SiteUsers(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    date_of_birth = models.DateField()
+    profile_picture = models.ImageField(default='', null=True, blank=True)
+
+    def __str__(self):
+        return f'{self.user.username} Profile'

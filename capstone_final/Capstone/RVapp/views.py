@@ -1,6 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
 from django.http import JsonResponse
+from .forms import RegisterForm
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login as dj_login
+
+
+
 
 # Create your views here.
 def home(request):
@@ -36,9 +42,33 @@ def get_campground(request):
 
     return JsonResponse({'message': 'Something went wrong '})
 
-def register (request):
-    return render (request, 'register.html')
 
+
+ 
+def register(request):
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            user.refresh_from_db()  
+            # load the profile instance created by the signal
+            user.save()
+            raw_password = form.cleaned_data.get('password1')
+
+            # login user after signing up
+            user = authenticate(username=user.username, password=raw_password)
+            dj_login(request, user)
+
+            # redirect user to home page
+            return redirect('profile')
+    else:
+        form = RegisterForm()
+    return render(request, 'register.html', {'form': form})
+
+def profile(request):
+    context = {'user': request.user}
+    
+    return render(request, 'profile.html', context)
 
 def login (request):
     return render (request, 'login.html')
