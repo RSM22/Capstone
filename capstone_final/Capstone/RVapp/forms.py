@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django import forms
 
 
+
 class RegisterForm(UserCreationForm):
     email = forms.EmailField()
 
@@ -11,3 +12,7 @@ class RegisterForm(UserCreationForm):
         fields = [
             'username', 'email', 'password1', 'password2'
         ]
+
+class TimeForm(forms.Form):
+    my_date_field = forms.DateField()
+

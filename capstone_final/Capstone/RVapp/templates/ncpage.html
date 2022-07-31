@@ -1,0 +1,47 @@
+<h1> This is the hotel name page </h1>
+
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <link href="{% static "style.css" %}" rel="stylesheet" type="text/css">
+    <script type="text/javascript"src="static/style.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+   <head>
+      <title>HTML doctype Tag</title>
+   </head>
+
+   <body>
+    <button><a href="{% url 'ncpage1' %}"> Purchase<a/> </button>
+
+        <div class="home-redirect-btn">
+            <ul>
+                <li><a href="{% url 'register' %}"><button> Register </button></a></li>
+        
+                <li><a href="{% url 'home' %}"><button> Home </button></a></li>
+        
+                <li><a href="{% url 'login' %}"><button> Login </button></a></li>
+        
+                <li><a href="{% url 'profile' %}"><button> Profile </button></a></li>
+            </ul>
+        </div>
+
+
+   </body>
+</html>
+
+
+
+
+<div class="home-redirect-btn">
+    <ul>
+        <li><a href="{% url 'register' %}"><button> Register </button></a></li>
+
+        <li><a href="{% url 'home' %}"><button> Home </button></a></li>
+
+        <li><a href="{% url 'login' %}"><button> Login </button></a></li>
+
+        <li><a href="{% url 'profile' %}"><button> Profile </button></a></li>
+    </ul>
+</div>

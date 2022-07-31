@@ -1,0 +1,42 @@
+<h1> Reviews Page </h1>
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset=UTF-8>
+    <title>Hello World!</title>
+  </head>
+  <body>
+  </body>
+  <script type="text/javascript"src="static/style.js"></script>
+
+
+    <div class="review-main"> Something Here: 
+        <span class="fa fa-star fa-3x checked" id="first"></span>
+        <span class="fa fa-star fa-3x checked" id="second"></span>
+        <span class="fa fa-star fa-3x checked" id="third"></span>
+        <span class="fa fa-star fa-3x " id="fourth"></span>
+        <span class="fa fa-star fa-3x " id="fifth"></span>
+        <div id="confirm-box"></div>
+
+    <div><br>
+    
+
+
+
+
+        <div class="home-redirect-btn">
+            <ul>
+                <li><a href="{% url 'register' %}"><button> Register </button></a></li>
+        
+                <li><a href="{% url 'home' %}"><button> Home </button></a></li>
+        
+                <li><a href="{% url 'login' %}"><button> Login </button></a></li>
+        
+                <li><a href="{% url 'profile' %}"><button> Profile </button></a></li>
+            </ul>
+        </div>
+
+</html>
