@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+
+{% load static %}
+
+<h1> Email Page </h1>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Email </title>
+
+</head>
+<body class="email-body">
+    <div class="email-ec">
+        <div class="row">  
+            <h1>You have just sent an email to: {{ user.email }}. 
+                Please check your email for your credentials! 
+            </h1> 
+        </div>
+    </div>
+
+    <div class="email-redirect-btn">
+        <ul>
+            
+            <a href="{% url 'home' %}"><button> Home </button></a>
+    
+            <a href="{% url 'logout' %}"><button> Logout </button></a>
+    
+            <a href="{% url 'profile' %}"><button> Profile </button></a>
+    
+        </ul>
+    </div>
+
+
+</body>
+</html>
+

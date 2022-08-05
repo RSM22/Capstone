@@ -1,10 +1,14 @@
 const one = document.getElementById('first')
 const two = document.getElementById('second')
 const three = document.getElementById('third')
-const four = document.getElementById('fouth')
+const four = document.getElementById('fourth')
 const five = document.getElementById('fifth')
 
 console.log(one)
+console.log(two)
+console.log(three)
+console.log(four)
+console.log(five)
 
 const handleSelect = (selection) => {
     switch(selection){
@@ -24,7 +28,7 @@ const handleSelect = (selection) => {
             five.classList.remove('checked')
             return
         }
-        case 'thrid': {
+        case 'third': {
             one.classList.add('checked')
             two.classList.add('checked')
             three.classList.add('checked')

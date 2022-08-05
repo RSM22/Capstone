@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+
+{% load static %}
+ 
+<html>
+<head>
+
+
+<h1> Review Page </h1>
+
+<html lang="en">
+  <head>
+    <meta charset=UTF-8>
+    <title> Review </title>
+    
+
+
+  </head>
+  <body>
+    {% block content%}
+    
+    <div>
+
+    </div>
+    <div class="review-main"> Your Rating score: 
+      <div class="review-box"> Star box 
+        <span class="fa fa-star fa-3x checked" id="first"></span>
+        <span class="fa fa-star fa-3x checked" id="second"></span>
+        <span class="fa fa-star fa-3x checked" id="third"></span>
+        <span class="fa fa-star fa-3x checked" id="fourth"></span>
+        <span class="fa fa-star fa-3x checked" id="fifth"></span>
+      </di>
+        <div id="confirm-box"> Confirm box </div>
+      <br>
+
+
+
+      {% for x in images %}
+      <p><img src="{{ x.images.url }}">  Image </p>
+                  {% endfor %}
+  
+  
+
+
+
+        <div class="reviews-redirect-btn">
+            <ul>
+                <a href="{% url 'register' %}"><button> Register </button></a>
+        
+                <a href="{% url 'home' %}"><button> Home </button></a>
+        
+                <a href="{% url 'login' %}"><button> Login </button></a>
+        
+                <a href="{% url 'profile' %}"><button> Profile </button></a>
+            </ul>
+        </div>
+  </body>
+  {% endblock %}
+</html>

@@ -1,47 +1,133 @@
-<h1> This is the hotel name page </h1>
+<!DOCTYPE html>
+
+
 
 {% load static %}
 
-<!DOCTYPE html>
-<html>
-    <link href="{% static "style.css" %}" rel="stylesheet" type="text/css">
-    <script type="text/javascript"src="static/style.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
+
+<html lang="en">
    <head>
-      <title>HTML doctype Tag</title>
+    <meta charset=UTF-8>
+      <title> Purchase Page </title>
+     
    </head>
-
-   <body>
-    <button><a href="{% url 'ncpage1' %}"> Purchase<a/> </button>
-
-        <div class="home-redirect-btn">
-            <ul>
-                <li><a href="{% url 'register' %}"><button> Register </button></a></li>
         
-                <li><a href="{% url 'home' %}"><button> Home </button></a></li>
-        
-                <li><a href="{% url 'login' %}"><button> Login </button></a></li>
-        
-                <li><a href="{% url 'profile' %}"><button> Profile </button></a></li>
-            </ul>
+         
+        <div class="background-log">
+            <div>
+                <h1 class="heading1"> Newport News, VA </h1> 
+            </div>
+             
+            <div>
+                <button class="purchase-btn"><a href="{% url 'ncpage1' %}"> Purchase </a> </button>
+            </div>
         </div>
+        <link href="{% static "style.css" %}" rel="stylesheet" type="text/css">
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <body class="ncpage-body">
+        <div class="ncpage-image">
+            <img src="/media/campgrounds/testpage1.jpg" alt="testimage" width="1895px" />
+        </div>
+        <div class="ncpage-navbar">
+            <div class="ncpage-redirect-btn">
+                <ul>
+                    <a href="{% url 'profile' %}"><button class="ncpage-redirect-btn"> Profile </button></a>
+    
+                    <a href="{% url 'home' %}"><button class="ncpage-redirect-btn"> Home </button></a>
+    
+                    <a href="{% url 'logout' %}"><button class="ncpage-redirect-btn"> Logout </button></a>
+                </ul>
+            </div>
+        </div> 
+        <div class="ncpage-name">
+            <h1> Davis Sport RV Campground </h1>
+        </div>
+        <div class="ncpage-image-contain">
+            <div class="image-hold">
+                <img src="/media/campgrounds/campsite.jpg" alt="testimage" class="ncpage-image1" />
+            </div>
+            <div class ="col">
+                <img src="/media/campgrounds/campground-map.png" alt="testimage" class="ncpage-image2" />
+            </div>
+        </div>
+        <div>
+            <div class="ncpage-ov">
+                <h1 class="ncpage-ov-p"> Campground Overview </h1>  
+            </div>
+                <p class="ncpage-p"> Campsites at Gulpha Gorge Campground vary in size and can accommodate both tents and recreational vehicles (RV's). </p>
+            <div>
+                <h2 class="ncpage-h2"> Site Amenities </h2>
+            </div>
+                <p class="ncpage-p">  All sites have full hookups: 30 and 50 amp electric, water and sewer connections. Sites are not pull-through. Each campsite has a picnic table, pedestal grill, and water. There are modern restrooms but no showers. Maximum occupancy is limited to eight people/two vehicles (one RV and one tent OR two tents) per site. Check in time is at 2:00 pm, and check out time is 12:00 pm. </p>
+            <div>
+                <h2 class="ncpage-h2">  Fees & Reservations</h2>
+            </div>
+            <div>
+                <p class="ncpage-p">  PLEASE NOTE: Starting February 1, 2022, all 40 campsites at Davis RV & Campground will require prior reservation on www.Recreation.gov, and will cost $34 per night. </p>
+            </div>
+        </div>
+        <div>
+            <div class="ncpage-p"> Open |  <span class="ncpage-p">  Basic Information </span></div>
+           
+        </div>
+        <div>
+            <img src="/media/campgrounds/thumb.jpg" alt="testimage" class="ncpage-image3" /> 
+            <p class="ncpage-p"> Camping at Gulpha Gorge Campground costs $34 per night for all sites. All sites have full hookups: 30 and 50 amp electric, water and sewer connections. Sites are not pull-through. Each campsite has a picnic table, pedestal grill, and water.
+
+                Camping in Gulpha Gorge Campground is limited to a total of 14 consecutive days and a cumulative total of 30 days in any calendar year. Each 14 day consecutive stay must be followed by a minimum of a 7 day break. </p>
+        </div>
+
+        <div>
+            <p class="ncpage-p"> ADA Information - Gulpha Gorge Campground is fully accessible. The campground is mostly flat, with paved surfaces throughout. Sidewalks are available and lead from campsites to the restrooms and the amphitheater. One campsite is designated as ADA compliant and several are located near the campgrounds amenities. Campground hosts are available at the campground.
+                <br><br>
+                Wheelchair Access - Restrooms and campsites are ADA accessible. One campsite is designated as ADA compliant.
+                <br>
+                RV & Trailer Information - RV's and trailers are both allowed at all of the campsites at Gulpha Gorge. The maximum allowed length is 60 feet, and includes vehicle length. Each campsite has full hook ups for electricity, water, and waste.
+                <br>
+                <br>
+                RV Allowed - Yes
+                <br><br>
+                RV Max Length in Feet - 60
+                <br><br>
+                Trailer Allowed - Yes
+                <br><br>
+                Trailer Max Length in Feet - 60
+                <br><br>
+                Classification - This campground is a developed campground.</p><br>
+        </div>
+
+
+
+        <div>
+            {% block content %}
+
+                {% for objs in campground_obj %}
+
+            <div class="nc-cg-name">
+                <p>  Here: {{ objs.campground_name }} </p>
+                <p> {{ objs.description }} </p>
+            </div>
+                
+                {% endfor %}
+
+            {% endblock %}
+        </div>
+
+
+
+
+
+
+
+    
+        
+        
 
 
    </body>
 </html>
 
 
-
-
-<div class="home-redirect-btn">
-    <ul>
-        <li><a href="{% url 'register' %}"><button> Register </button></a></li>
-
-        <li><a href="{% url 'home' %}"><button> Home </button></a></li>
-
-        <li><a href="{% url 'login' %}"><button> Login </button></a></li>
-
-        <li><a href="{% url 'profile' %}"><button> Profile </button></a></li>
-    </ul>
-</div>

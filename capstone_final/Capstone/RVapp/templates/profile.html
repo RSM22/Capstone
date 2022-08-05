@@ -1,48 +1,62 @@
-<h1> Profile Page </h1>
+
+<!DOCTYPE html>
 
 {% load static %}
 
-<!DOCTYPE html>
 <html>
 <head>
 <link href="{% static 'style.css' %}" rel="stylesheet" type="text/css">
 </head>
 <body class="profile-body">
 
-<h1>This is a heading</h1>
-<p>This is a paragraph.</p>
- 
+    {% if user.is_authenticated %} 
+
+    {% block content %}
+    
+    <div class="profile-enclosure">
+        <div class="profile">
+            <h1 class="profile-name"> Welcome, {{ user.username }}. </h1><br>
+            
+        </div>
+            <h2 class="profile-email"> {{ user.email }} </h2>
+        <div class="picture-image">    
+            <img src="{{ user.siteusers.profile_picture.url }}"  class="image-crop"/> 
+            <br>
+            <br>
+        </div> 
+    </div>
+    
+    <div class="profile-redirect-btn">
+        <ul>
+            
+            <a href="{% url 'home' %}"><button> Home </button></a>
+    
+            <a href="{% url 'logout' %}"><button> Logout </button></a>
+
+            <a href="{% url 'profile' %}"><button> Profile </button></a>
+
+            <a href="{% url 'home' %}"><button> Settings </buttons></a>
+    
+        </ul>
+    </div>
+    
+        
+    {% endblock content %}
+    
+    {% else %}
+    <div class="profile-redirect">
+            <h1> You are not logged in. Please login <a href="{% url 'login' %}"> Here. </a></h1>
+        <ul class="home-redirect-btn1"> 
+            <a href="{% url 'home' %}"><button> Home </button></a>
+    
+            <a href="{% url 'register' %}"><button> Register </button></a>
+    
+            <a href="{% url 'login' %}"><button> Login </button></a>
+        </ul>
+    
+    </div>
+    
+    
+    {% endif %}
 </body>
 </html>
-{% if user.is_authenticated %} 
-
-{% block content %}
-
-<div class="profile-enclosure">
-    <div class="profile">
-        <h1> Welcome, {{ user.username }}. </h1><br>
-    </div>
-    <div class="picture-image">    
-        <img src="{{ user.siteusers.profile_picture.url }}" height="100px"> 
-        <h1 class="profile-email"> {{ user.email }} </h1>
-    </div> 
-</div>
-
-<div class="home-redirect-btn">
-    <ul>
-        <li><a href="{% url 'register' %}"><button> Register </button></a></li>
-
-        <li><a href="{% url 'home' %}"><button> Home </button></a></li>
-
-        <li><a href="{% url 'login' %}"><button> Login </button></a></li>
-
-        <li><a href="{% url 'profile' %}"><button> Profile </button></a></li>
-    </ul>
-</div>
-
-    
-{% endblock content %}
-
-{% else %}
-<p> Login <a href="/login">Here</a></p>
-{% endif %}

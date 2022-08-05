@@ -1,184 +1,277 @@
-.home-redirect-btn {
-    display: flex;
-    margin-left: 840px;
-    margin-top: 30px;
+body {
+    background-color: #393B45;
 }
-.home-header { 
-    font-size: 20px;
 
-}
-.header {
+.top-header {
     margin-top: 5px;
+    height: 200px;
+    width: 100%;
+    border: 1px solid black;
+    background-color: antiquewhite;
+}
+.header{
+    border: 1px solid black;
+}
+.body-background {
+    background-color: #2e3d2f;
+    height: auto;
 }
 .content-title {
     border: 1px solid black;
     height: 200px;
-    display: inline-flex;
-    margin-left: 150px;
-}
-
-.headerbtn {
-    margin-bottom: 20px;
-    border: 1px solid black;
-    font-size: 10px;
-}
-
-.left-btn {
-    display: inline;
-}
-.right-btn {
-    display: inline;
-}
-.home-body {
-    font-size: 30px;
-    text-align: center;
-    margin: 5px;
-}
-.content-title {
-    font-size: 20px;
-    color: black;
-    margin: 50px
-}
-
-.home-body-div {
-    outline: 5px solid black;
-    margin-top: 30px;
-    background-color: rgb(53, 39, 39);
-    margin-bottom: 100px;
-
-
-}
-.profile {
-    font-size: 20px;
-    background-color: blueviolet;
     display: flex;
-}
-.profile-body {
-    background-color:rgb(159, 159, 189)
-}
-.profile-enclosure {
-    margin: 20px;
-    border: 5px solid black;
-    border-radius: 5px;
-}
-.profile-email {
-    font-size: 18px;
-}
-.register-body {
-    background-color:rgb(145, 145, 167)
-}
-.c-enclosure {
-    display: inline-table;
-    margin-left: 10px;
-    margin-right: 10px;
-    color:black;
-    margin-top: 30px;
-    height: 400px;
-    background-color: rgb(236, 230, 222);
-    border: 1px solid;
-    padding: 10px;
-    box-shadow: 5px 10px 18px black;
-}
-.cname {
-    border: 1px solid black;
-    width: 500px;
-    text-align: left;
-    font-weight: bolder;
-    
-}
-.cprice {
-    border: 1px solid black;
-    width: 150px;
-}
-.cdescription {
-    border: 1px solid black;
-    margin-top: 75px;
-    height:200px;
-    text-align: left;
-}
-.camenities {
-    color: purple;
-}
-.button {
-    display: inline-block;
-    background-color: #7b38d8;
-    border-radius: 10px;
-    border: 4px double #cccccc;
-    color: #eeeeee;
-    text-align: center;
-    font-size: 18px;
-    padding: 15px;
-    width: 125px;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    -o-transition: all 0.5s;
-    transition: all 0.5s;
-    cursor: pointer;
-    margin: 5px;
-  }
-.checkin {
-    font-size: 25px;
+    background-color: antiquewhite;
 }
 .destination {
     font-size: 25px;
+    margin: 25px;
+}
+.checkin {
+    font-size: 25px;
+    margin: 25px;
 }
 .checkout {
     font-size: 25px;
+    margin: 25px;
 }
-.checked {
-    color: rgb(70, 62, 49);
-  }
-.review-main {
-    font-size: 18px;
-
+.search-btn {
+    font-size: 57px;
+    margin: 25px;
 }
 .cg-count {
-    color: black;
-    font-size: 10px;
-    text-align: center;
+    font-size: 20px;
 }
-.amenities {
-    color: black;
+.home-body {
+    font-size: 30px;
+    margin: 5px;
 }
-.more-content {
-    color: black;
-}
-.page-links {
-    text-align: center;
-}
-.page-number {
-    color:black;
-    font-size: 15px;
-}
-ul {
+.header-btn {
+    font-size: 40px;
     list-style-type: none;
-    position: fixed;
-    bottom: 20px;
-    width: 100%;
- }
- li {
-    float: left;
-       border-right: 1px solid white;
- }
- li a {
-    display: block;
-    padding: 8px;
-    background-color: orange;
- }
- li:last-child {
-    border-right: none;
- }
+    background-color: black;
+}
+.big-btn {
+  background-color: #2e3d2f; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-decoration: none;
+  font-size: 14px;
+
+}
+.header-main-btn {
+    text-align: center;
+}
+.c-enclosure {
+    width: 1885px;
+    border: 1px solid black;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    background-color: antiquewhite;
+}
 .image-block {
+    width: 250px;
+    height: 200px;
     border: 1px solid black;
     float: right;
-    height: 200px;
-    width: 300px;
+
 }
-.sort-block {
-    background-color: aqua;
+.c-name {
+    width: 150px;
+    height: 150px;
+
+}
+.c-amenities {
+    height: 200;
+    width: 200px;
+    text-align: center;
+    text-align: wrap;
+}
+.c-name {
+    border: 1px solid black;
+    width: 400px;
+    font-size: 25px;
+}
+.c-price {
+    height: 50px;
+    width: 200px;
+    text-align: center;
+    font-size: 25px;
+    border: 1px solid black;
+}
+.c-description {
+    height:300px;
+    border: 1px solid black;
+    font-size: 25px;
+}
+.footer {
+    width:100%;
+    height:60px;   /* Height of the footer */
+    background-color: antiquewhite;
+}
+.pages {
+    text-align: center;
+}
+
+.profile-body {
+	background-color: #474a58;
+	height: 600px;
+	width: 350px;
+	margin: 10vh auto;
+	border-radius: 25px;
+	padding-bottom: 1px;
+	box-shadow: 2px 2px 5px #e1e2e9;
+}
+.profile-name {
+	color: white;
+	text-align: center;
+	width: 100%;
+	background-color: #E6EBEE;
+	border-radius: 25px 25px 0 0;
+	color: #393B45;
+	padding: 30px 0;
+	font-weight: 800;
+	margin: 0;
+}
+.image-crop {
+	display: block;
+	position: relative;
+	background-color: #24292c;
+	width: 150px;
+	height: 150px;
+	margin: 0 auto;
+	margin-top: 30px;
+	overflow: hidden;
+	border-radius: 50%;
+	box-shadow: 1px 1px 5px #e8eaee;
+}
+.profile-redirect-btn {
+    list-style-type: none;
+    display: flex;
+    text-align: center;
+}
+.profile {
+    text-align: center;
+}
+.profile-enclosure {
+    color: white
+}
+.profile-email {
+    text-align: center;
+}
+.profile-redirect {
     display: inline;
 }
-.sort-label {
-    color: black;
+.register-body {
+    background-color: #25262b;
+    color: wheat
+}
+.email-body {
+    background-color: #25262b;
+    color: wheat;
+    height: 1000px;
+}
+.email-ec {
+    text-align: center;
+}
+.email-redirect-btn {
+    text-align: center;
+}
+.ncpage-body {
+    background-color: #535661;
+    color: wheat
+}
+.ncpage-image {
+    width: 1890px;
+}
+.purchase-btn {
+    float:right;
+    width: 150px;
+    height: 40px;
+    vertical-align: top;
     font-size: 30px;
+}
+.heading1 {
+    font-size: 45px;
+    text-align: left;
+}
+.ncpage-redirect-btn {
+    width: 150px;
+    height: 40px;
+    display: inline;
+    text-align: center;
+    font-size: 30px;
+    bottom: 0;
+}
+.ncpage-navbar {
+    width: auto;
+    background-color: rgb(15, 15, 15);
+    border: 1px solid black;
+    text-align: center;
+    color: wheat;
+    overflow: hidden;
+
+}
+.nc-navbar {
+    font-size: 30px;
+}
+.login-main {
+    background-color: #393B45;
+    color: wheat;
+}
+.logout-main {
+    background-color: #393B45;
+    color: wheat;
+}
+.ncpage1-heading {
+    background-color: #393B45;
+    color: wheat;
+}
+.ncpage1-btn {
+    width: 150px;
+    height: 40px;
+    text-align: center;
+    font-size: 30px;
+}
+.ncpage-name {
+    font-size: 35px;
+}
+.ncpage-image-contain {
+    display: flex;
+}
+.ncpage-image1 {
+    height: 800px;
+    width: 800px;
+}
+.ncpage-image2 {
+    height: 700px;
+    width: 700px;
+}
+.image-hold {
+    text-align: center;
+}
+.col {
+    float:right;
+    padding: 25px;
+
+}
+.ncpage-ov {
+    font-size: 25px;
+}
+.ncpage-ov-p {
+    text-decoration: underline;
+    
+}
+.ncpage-p {
+    text-align: justify;
+    font-size: 25px;
+    text-indent: 50px;
+}
+.ncpage-h2 {
+    font-size: 35px;
+}
+.ncpage-image3 {
+    height: 200;
+    width: 200px;
+
 }

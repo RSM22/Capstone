@@ -2,65 +2,74 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html>
-<head>
-<title> Search  </title>
-</head >
-<link href="{% static "style.css" %}" rel="stylesheet" type="text/css">
-<script type="text/javascript"src="static/style.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<html lang="en">
+    <head>
+        <meta charset=UTF-8/>
+        <title> Campgrounds </title>
 
-<div class='home-header'>
-    <h1 class="header"> Campground Search page  </h1>
-    <div class="headerbtn">
-        <div class="left-btn">
-            <a href="{% url 'register' %}"><button> Register </button></a>
-        
-            <a href="{% url 'home' %}"><button> Home </button></a>
-        </div>
-        
-        <div class="right-btn">
-            <a href="{% url 'login' %}"><button> Login </button></a>
-    
-            <a href="{% url 'profile' %}"><button> Profile </button></a>
-        </div>
-    </div>
-<div>
-   
+        <link href="{% static "style.css" %}" rel="stylesheet" type="text/css"/>
+        <script type="text/javascript" src="static/style.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <header> 
+                <div class="top-header">
+                    <div class="header">
+                        <h1> Campground Search page </h1>
+                    </div>
+                    <div class="header-main-btn">
+                        {% block content %}
+                        {% if user.is_authenticated %} 
+                        <nav>
+                                <a href="{% url 'home' %}"><button class="button big-btn"> Home </button></a>
+                                <a href="{% url 'profile' %}"><button class="button big-btn"> Profile </button></a>
+                                <a href="{% url 'logout' %}"><button class="button big-btn"> Logout </button></a>
+                        </nav>
+                        {% else %}
+                        <nav>
+                                <a href="{% url 'register' %}"><button class="button big-btn"> Register </button></a>
+                                <a href="{% url 'home' %}"><button class="button big-btn"> Home </button></a>
+                                <a href="{% url 'login' %}"><button class="button big-btn"> Login </button></a>                                
+                        </nav>
+                            
+                        {% endif %}
+                          
+                    </div>       
+                </div>
+        </header>
+    </head>
 
-<div class="home-body-div">
-    <body class="home-body">
+    <body>
         <div class="content-title">
-                <div class="destination"> Destination
-                    <form action="">
-                      <input type="text" placeholder="Search..." name="destination">
-                    </form>
-                </div>
-                <div class="checkin"> Check In
-                    <form action="">
-                        <input id="checkin" type="date" name="checkin">
+            <div class="destination"> Destination
+                <form action="">
+                    <input type="text" placeholder="Search..." name="destination">
+                </form>
+            </div>
+            <div class="checkin"> Check In
+                <form action="">
+                    <input id="checkin" type="date" name="checkin">
                         {{ timeform.my_date_field }}
-                    </form>
-                </div>
-
-                <div class="checkout"> Check Out
-                    <form action="">
-                      <input type="date"  name="checkout">
+                </form>
+            </div>
+            <div class="checkout"> Check Out
+                <form action="">
+                    <input type="date"  name="checkout">
                       {{ timeform.my_date_field }}
-                    </form>
-                </div>
-                <div class="search"> Search
-                    <form action=""> 
-                      <button class="button" type="submit" value="Search" name="button"> Submit </button> 
-                    </form>
-                </div>      
-              {% block content%}  
+                </form>
+            </div>
+            <div class="search-btn">
+                <form action=""> 
+                    <button class="button" type="submit" value="Search" name="button"> Submit </button> 
+                </form>
+            </div>      
+            <div class="cg-count"> 
+                    <p> Total number of Campgounds {{ count }} </p>
+            </div>
         </div>
 
         <div class="sort-block">
             
             <div class="sort-label">
-                <label > Sort: 
+                <label> Sort: 
                     <select class="form-control">
                         <option value="asc"> ASC </option>
                         <option value="dsc"> DSC </option>
@@ -71,76 +80,62 @@
                         <option value="{{ amenity }}"></option>
                         {% endfor %}
                     </select>
-                    <p class="cg-count"> 
-                        <h2> Total number of Campgounds {{ count }} </h2>
-                    </p>
+
                 </label>
 
             </div>
         </div>
-            
-        <div>
-            {% for list in page.object_list %}
+              
             <div class='c-enclosure'>
                 <div class="image-block">
-                    <p> <img src="{{ image.images.url}}" alt="Images"></p>
+                    <p><img src="#"> Image </p>
                 </div>
-
-                <div class="cname">
+                    {% for list in page.object_list %}
+                <div class="c-name">
                     <p> {{ list.campground_name  }} <a href='ncpage'> Link </a> </p> 
                 </div>
                 
-                <div class="cprice">
+                <div class="c-price">
                     <p>  Price: ${{ list.campground_price }} </p>
                 </div>
-                <div class="cdescription">
-                    <p> {{ list.description }} </p>
+                <div class="c-description">
+                        <p> {{ list.description }} </p>
+                    <div class="c-amenities">
+                        <p> Amenities: {{ list.amenities }} </p><a href="/reviews"> Reviews </a>
+                    </div>               
                 </div>
-                <div class="camenities">
-                    <p>  Amenities: {{ list.amenities }} </p>
-                </div>           
-                
+                {% endfor %} 
+                {% endblock %}   
             </div>
-            {% endfor %}
-        </div>
             
 
-         {% for list in amenities %}
+         {% comment %} {% for list in amenities %}
 
         <p class="amenities">  Amenities: {{ list.amenities }} </p>
 
-         {% endfor %}
+         {% endfor %} {% endcomment %}
 
-         {% for item in camp_images %}
-            <p> <img src="item.camp_images.url "></p>
-         {% endfor %}
+
            
-            
-         {% endblock %}
-        <p>
-            <p class="page-number"> Page Number: {{ page.number }} </p>
-            <div class="page-links"> 
-                {% if page.has_previous %}
-                <a href="{% url 'home' %}?page={{ page.previous_page_number }}"> Previous Page </a>
-                {% endif %}
+           <div class="footer"> 
+                <div class="pages">
+                    
+                    <div>
+                        <p class="page-number"> Page Number: {{ page.number }} </p>
+                    </div>
+                    <div class="page-links"> 
+                        {% if page.has_previous %}
+                        <a href="{% url 'home' %}?page={{ page.previous_page_number }}"> Previous Page </a>
+                        {% endif %}
 
-                {% if page.has_next %}
-                <a href="{% url 'home' %}?page={{ page.next_page_number}}"> Next Page </a>
-                {% endif %}
-            </div>
-        </p>
-        <p class="more-content">  </p>
+                        {% if page.has_next %}
+                        <a href="{% url 'home' %}?page={{ page.next_page_number}}"> Next Page </a>
+                        {% endif %}
+                    </div>
+                    
+                </div>
+            </div>    
     </body>    
-</div>
-<div class="home-redirect-btn">
-    <ul>
-        <li><a href="{% url 'register' %}"><button> Register </button></a></li>
-
-        <li><a href="{% url 'home' %}"><button> Home </button></a></li>
-
-        <li><a href="{% url 'login' %}"><button> Login </button></a></li>
-
-        <li><a href="{% url 'profile' %}"><button> Profile </button></a></li>
-    </ul>
-</div>
+        
+    
 </html> 

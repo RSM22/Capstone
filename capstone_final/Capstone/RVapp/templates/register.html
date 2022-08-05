@@ -1,30 +1,41 @@
+<!DOCTYPE html>
+
 <h1> Register Page </h1>
+
 {% load static %}
  
-<!DOCTYPE html>
 <html>
-<head>
-<link href="{% static 'style.css' %}" rel="stylesheet" type="text/css">
-</head>
+  <head>
+
+      <link href="{% static "style.css" %}" rel="stylesheet" type="text/css"/>
+      <script type="text/javascript" src="static/style.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  </head>
 <body class="register-body">
 
 
 
-<h2>Sign up</h2>
- <form method="post">
-    {% csrf_token %}
-    {% for field in form %}
-      <p>
-        {{ field.label_tag }}<br>
-        {{ field }}
-        {% if field.help_text %}
-          <small style="color: grey">{{ field.help_text }}</small>
-        {% endif %}
-        {% for error in field.errors %}
-          <p style="color: red">{{ error }}</p>
-        {% endfor %}
-      </p>
-    {% endfor %}
-    <button type="submit">Sign up</button>
-  </form>
+  <h2>Sign up</h2>
+  <form method="post">
+      {% csrf_token %}
+      {% for field in form %}
+        <p>
+          {{ field.label_tag }}<br>
+          {{ field }}
+          {% if field.help_text %}
+            <small style="color: grey">{{ field.help_text }}</small>
+          {% endif %}
+          {% for error in field.errors %}
+            <p style="color: red">{{ error }}</p>
+          {% endfor %}
+        </p>
+      {% endfor %}
+      
+      <button type="submit"> Register </button>
+      
+    </form>
 
+  <div>
+    <a href="{% url 'home' %}"><button> Home </button></a></li>
+  </div>
+</body>

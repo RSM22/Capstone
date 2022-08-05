@@ -4,6 +4,7 @@ from django import forms
 
 
 
+
 class RegisterForm(UserCreationForm):
     email = forms.EmailField()
 
