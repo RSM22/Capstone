@@ -14,7 +14,9 @@ urlpatterns = [
     path('profile/', views.profile, name='profile'),
     path('ncpage/', views.ncpage, name='ncpage'),
     path('ncpage1/', views.ncpage1, name='ncpage1'),
-    path('reviews', views.reviews, name="reviews"),
+    path('reviews/', views.reviews, name="reviews"),
+    path('email/', views.send_email, name='email'),
+    path('confirmation/', views.confirmation, name='confirmation'),
       
 ]
 
